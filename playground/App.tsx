@@ -2,8 +2,12 @@ import { Route, Router } from "@solidjs/router";
 import { ErrorBoundary, type ParentProps } from "solid-js";
 
 import { Navbar } from "./Navbar";
+import { BasicExample } from "./pages/BasicExample";
+import { ChartsExample } from "./pages/ChartsExample";
 import { ErrorPage } from "./pages/Error";
+import { GridsExample } from "./pages/GridsExample";
 import { Home } from "./pages/Home";
+import { ListsExample } from "./pages/ListsExample";
 import { NotFound } from "./pages/NotFound";
 
 const MainContent = (props: ParentProps) => {
@@ -26,6 +30,10 @@ export const App = () => {
     <ErrorBoundary fallback={(e, r) => <ErrorPage error={e} reset={r} />}>
       <Router root={RootLayout}>
         <Route path="/" component={Home} />
+        <Route path="/basic" component={BasicExample} />
+        <Route path="/charts" component={ChartsExample} />
+        <Route path="/lists" component={ListsExample} />
+        <Route path="/grids" component={GridsExample} />
         <Route path="*" component={NotFound} />
       </Router>
     </ErrorBoundary>

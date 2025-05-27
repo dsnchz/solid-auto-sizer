@@ -1,17 +1,17 @@
 {
-  "name": "template-solidjs-library",
+  "name": "@dschz/solid-auto-sizer",
   "version": "0.0.0",
-  "description": "Template for SolidJS library using tsup for bundling. Configured with Bun, NVM, TypeScript, ESLint, Prettier, Vitest, and GHA",
+  "description": "SolidJS component that automatically measures and provides the width and height of its parent — useful for virtualized lists, grids, and charts.",
   "type": "module",
   "author": "Daniel Sanchez <dsanc89@icloud.com>",
   "license": "MIT",
-  "homepage": "https://github.com/thedanchez/template-solidjs-library#readme",
+  "homepage": "https://github.com/dsnchz/solid-auto-sizer#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/thedanchez/template-solidjs-library.git"
+    "url": "https://github.com/dsnchz/solid-auto-sizer.git"
   },
   "bugs": {
-    "url": "https://github.com/thedanchez/template-solidjs-library/issues"
+    "url": "https://github.com/dsnchz/solid-auto-sizer/issues"
   },
   "publishConfig": {
     "access": "public"

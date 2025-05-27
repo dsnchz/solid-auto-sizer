@@ -1,62 +1,218 @@
 <p>
-  <img width="100%" src="https://assets.solidjs.com/banner?type=Ecosystem&background=tiles&project=library-name" alt="solid-create-script">
+  <img width="100%" src="https://assets.solidjs.com/banner?type=Ecosystem&background=tiles&project=solid-auto-sizer" alt="SolidJS AutoSizer">
 </p>
 
-# Template: SolidJS Library
+# @dschz/solid-auto-sizer
 
-Template for [SolidJS](https://www.solidjs.com/) library package. Bundling of the library is managed by [tsup](https://tsup.egoist.dev/).
+> A SolidJS component that automatically measures and provides the width and height of its parent container, making it perfect for responsive layouts and virtualized components.
 
-Other things configured include:
+![SolidJS](https://img.shields.io/badge/SolidJS-2c4f7c?logo=solid&logoColor=c8c9cb)
+[![npm version](https://badge.fury.io/js/@dschz%2Fsolid-auto-sizer.svg)](https://badge.fury.io/js/@dschz%2Fsolid-auto-sizer)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-- Bun (for dependency management and running scripts)
-- TypeScript
-- ESLint / Prettier
-- Solid Testing Library + Vitest (for testing)
-- Playground app using library
-- GitHub Actions (for all CI/CD)
+**Inspired by [React Virtualized Auto Sizer](https://github.com/bvaughn/react-virtualized-auto-sizer)**, this component brings the same powerful auto-sizing capabilities to SolidJS with modern improvements like ResizeObserver API and reactive signals for better performance and developer experience.
 
-## Getting Started
+## ✨ Features
 
-Some pre-requisites before install dependencies:
+- 🔍 **Modern ResizeObserver API** - Better performance and reliability
+- ⚡ **Reactive updates** - Uses SolidJS signals for efficient re-rendering
+- 🎛️ **Customizable initial dimensions** - Set default width/height for initial render
+- 📞 **Optional resize callbacks** - Get notified when size changes
+- 🎨 **Style and class prop support** - Full styling flexibility
+- 📦 **Lightweight** - Minimal bundle size with zero dependencies
 
-- Install Node Version Manager (NVM)
-  ```bash
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-  ```
-- Install Bun
-  ```bash
-  curl -fsSL https://bun.sh/install | bash
-  ```
+## 📦 Installation
 
-### Installing Dependencies
+Install via your favorite package manager:
 
 ```bash
-nvm use
-bun install
+npm install solid-js @dschz/solid-auto-sizer
+pnpm install solid-js @dschz/solid-auto-sizer
+yarn install solid-js @dschz/solid-auto-sizer
+bun install solid-js @dschz/solid-auto-sizer
 ```
 
-### Local Development Build
+> This is a **peer dependency**, so it must be installed manually:
+>
+> - `solid-js@>=1.6.0`
 
-```bash
-bun start
+## 🚀 Quick Start
+
+```tsx
+import { AutoSizer } from "@dschz/solid-auto-sizer";
+
+function MyComponent() {
+  return (
+    <div style={{ width: "100%", height: "400px" }}>
+      <AutoSizer>
+        {({ width, height }) => (
+          <div style={{ width: `${width}px`, height: `${height}px` }}>
+            Content that adapts to container size: {width} × {height}
+          </div>
+        )}
+      </AutoSizer>
+    </div>
+  );
+}
 ```
 
-### Linting & Formatting
+## 📖 Usage Examples
 
-```bash
-bun run lint    # checks source for lint violations
-bun run format  # checks source for format violations
+### Basic Usage
 
-bun run lint:fix    # fixes lint violations
-bun run format:fix  # fixes format violations
+```tsx
+import { AutoSizer } from "@dschz/solid-auto-sizer";
+
+<AutoSizer>{({ width, height }) => <canvas width={width} height={height} />}</AutoSizer>;
 ```
 
-### Contributing
+### With Initial Dimensions
 
-The only requirements when contributing are:
+```tsx
+<AutoSizer initialWidth={400} initialHeight={300}>
+  {({ width, height }) => <MyChart width={width} height={height} data={data} />}
+</AutoSizer>
+```
 
-- You keep a clean git history in your branch
-  - rebasing `main` instead of making merge commits.
-- Using proper commit message formats that adhere to [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
-  - Additionally, squashing (via rebase) commits that are not [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
-- CI checks pass before merging into `main`
+### With Resize Callback
+
+```tsx
+<AutoSizer
+  onResize={({ width, height }) => {
+    console.log(`Container resized to: ${width}x${height}`);
+  }}
+>
+  {({ width, height }) => <VirtualizedList width={width} height={height} items={items} />}
+</AutoSizer>
+```
+
+### With Custom Styling
+
+```tsx
+<AutoSizer
+  class="my-auto-sizer"
+  style={{
+    "background-color": "#f0f0f0",
+    border: "1px solid #ccc",
+    padding: "10px",
+  }}
+>
+  {({ width, height }) => (
+    <div>
+      Styled container: {width} × {height}
+    </div>
+  )}
+</AutoSizer>
+```
+
+## 📚 API Reference
+
+### Props
+
+| Prop            | Type                          | Default      | Description                                                 |
+| --------------- | ----------------------------- | ------------ | ----------------------------------------------------------- |
+| `children`      | `(size: Size) => JSX.Element` | **Required** | Render prop that receives the measured dimensions           |
+| `initialWidth`  | `number`                      | `0`          | Default width for initial render before measurement         |
+| `initialHeight` | `number`                      | `0`          | Default height for initial render before measurement        |
+| `onResize`      | `(size: Size) => void`        | `undefined`  | Callback fired when container size changes                  |
+| `class`         | `string`                      | `undefined`  | CSS class for the container element                         |
+| `style`         | `JSX.CSSProperties`           | `undefined`  | Inline styles for the container (width/height are reserved) |
+
+### Types
+
+```tsx
+type Size = {
+  readonly width: number;
+  readonly height: number;
+};
+
+type AutoSizerProps = {
+  readonly class?: string;
+  readonly style?: Omit<JSX.CSSProperties, "width" | "height">;
+  readonly initialWidth?: number;
+  readonly initialHeight?: number;
+  readonly onResize?: (size: Size) => void;
+  readonly children: (size: Size) => JSX.Element;
+};
+```
+
+## 💡 Common Use Cases
+
+### Charts and Visualizations
+
+```tsx
+import { AutoSizer } from "@dschz/solid-auto-sizer";
+import { LineChart } from "my-chart-library";
+
+<div style={{ width: "100%", height: "400px" }}>
+  <AutoSizer>
+    {({ width, height }) => <LineChart width={width} height={height} data={chartData} />}
+  </AutoSizer>
+</div>;
+```
+
+### Virtualized Lists
+
+```tsx
+import { AutoSizer } from "@dschz/solid-auto-sizer";
+import { VirtualList } from "my-virtualization-library";
+
+<div style={{ width: "100%", height: "600px" }}>
+  <AutoSizer>
+    {({ width, height }) => (
+      <VirtualList
+        width={width}
+        height={height}
+        itemCount={items.length}
+        itemSize={50}
+        renderItem={({ index }) => <div>{items[index].name}</div>}
+      />
+    )}
+  </AutoSizer>
+</div>;
+```
+
+### Responsive Grids
+
+```tsx
+import { AutoSizer } from "@dschz/solid-auto-sizer";
+
+<AutoSizer>
+  {({ width }) => {
+    const columns = Math.floor(width / 200); // 200px per column
+    return (
+      <div
+        style={{
+          display: "grid",
+          "grid-template-columns": `repeat(${columns}, 1fr)`,
+          gap: "16px",
+        }}
+      >
+        {items.map((item) => (
+          <GridItem key={item.id} {...item} />
+        ))}
+      </div>
+    );
+  }}
+</AutoSizer>;
+```
+
+## 🌐 Browser Support
+
+AutoSizer uses the [ResizeObserver API](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver), which is supported in:
+
+- Chrome 64+
+- Firefox 69+
+- Safari 13.1+
+- Edge 79+
+
+For older browsers, you can use a [ResizeObserver polyfill](https://github.com/que-etc/resize-observer-polyfill).
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Inspired by [React Virtualized Auto Sizer](https://github.com/bvaughn/react-virtualized-auto-sizer)
+- Built with [SolidJS](https://www.solidjs.com/)
