@@ -1,5 +1,11 @@
 # @dschz/solid-auto-sizer
 
+## 0.1.1
+
+### Patch Changes
+
+- Adds more keywords to make package more discoverable
+
 ## 0.1.0
 
 ### Minor Changes
