@@ -4,11 +4,14 @@
 
 # @dschz/solid-auto-sizer
 
-> A SolidJS component that automatically measures and provides the width and height of its parent container, making it perfect for responsive layouts and virtualized components.
-
 ![SolidJS](https://img.shields.io/badge/SolidJS-2c4f7c?logo=solid&logoColor=c8c9cb)
-[![npm version](https://badge.fury.io/js/@dschz%2Fsolid-auto-sizer.svg)](https://badge.fury.io/js/@dschz%2Fsolid-auto-sizer)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://badge.fury.io/js/@dschz%2Fsolid-auto-sizer.svg)](https://badge.fury.io/js/@dschz%2Fsolid-auto-sizer)
+[![Bundle Size](https://img.shields.io/bundlephobia/minzip/@dschz/solid-auto-sizer)](https://bundlephobia.com/package/@dschz/solid-auto-sizer)
+[![CI](https://github.com/dsnchz/solid-auto-sizer/actions/workflows/ci.yaml/badge.svg)](https://github.com/dsnchz/solid-auto-sizer/actions/workflows/ci.yaml)
+
+> A SolidJS component that automatically measures and provides the width and height of its parent container, making it perfect for responsive layouts and virtualized components.
 
 **Inspired by [React Virtualized Auto Sizer](https://github.com/bvaughn/react-virtualized-auto-sizer)**, this component brings the same powerful auto-sizing capabilities to SolidJS with modern improvements like ResizeObserver API and reactive signals for better performance and developer experience.
 
