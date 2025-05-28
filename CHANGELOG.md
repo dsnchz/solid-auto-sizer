@@ -1,5 +1,11 @@
 # @dschz/solid-auto-sizer
 
+## 0.1.2
+
+### Patch Changes
+
+- Updates readme content
+
 ## 0.1.1
 
 ### Patch Changes

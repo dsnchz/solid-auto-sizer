@@ -1,6 +1,6 @@
 {
   "name": "@dschz/solid-auto-sizer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "SolidJS component that automatically measures and provides the width and height of its parent — useful for virtualized lists, grids, and charts.",
   "type": "module",
   "author": "Daniel Sanchez <dsanc89@icloud.com>",
