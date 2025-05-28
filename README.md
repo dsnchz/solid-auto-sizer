@@ -4,8 +4,6 @@
 
 # @dschz/solid-auto-sizer
 
-![SolidJS](https://img.shields.io/badge/SolidJS-2c4f7c?logo=solid&logoColor=c8c9cb)
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![npm version](https://badge.fury.io/js/@dschz%2Fsolid-auto-sizer.svg)](https://badge.fury.io/js/@dschz%2Fsolid-auto-sizer)
 [![Bundle Size](https://img.shields.io/bundlephobia/minzip/@dschz/solid-auto-sizer)](https://bundlephobia.com/package/@dschz/solid-auto-sizer)
@@ -138,6 +136,36 @@ type AutoSizerProps = {
   readonly children: (size: Size) => JSX.Element;
 };
 ```
+
+## 🎮 Interactive Playground
+
+Explore AutoSizer's capabilities with our comprehensive playground app! The playground includes:
+
+- **Basic Examples** - Simple responsive content, resize callbacks, custom dimensions, flexbox integration
+- **Charts & Visualizations** - Responsive bar charts, line charts, pie charts, and dashboards
+- **Virtual Lists & Grids** - Performance demos with 1K-100K items, searchable lists, variable heights
+- **Real-time Demos** - Interactive examples you can resize and modify
+
+### Running the Playground
+
+```bash
+# Clone the repository
+git clone https://github.com/dsnchz/solid-auto-sizer.git
+cd solid-auto-sizer
+
+# Install dependencies
+npm|pnpm|yarn|bun install
+
+# Start the development server
+npm|pnpm|yarn|bun start
+```
+
+The playground will be available at `http://localhost:3000` and showcases real-world use cases including:
+
+- 📊 **Chart Integration** - See how AutoSizer works with data visualizations
+- 📋 **Virtual Scrolling** - Performance testing with large datasets
+- 🎨 **Styling Examples** - Custom themes and responsive designs
+- ⚡ **Performance Monitoring** - Real-time resize event tracking
 
 ## 💡 Common Use Cases
 
