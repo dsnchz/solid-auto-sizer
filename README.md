@@ -5,8 +5,9 @@
 # @dschz/solid-auto-sizer
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![npm version](https://badge.fury.io/js/@dschz%2Fsolid-auto-sizer.svg)](https://badge.fury.io/js/@dschz%2Fsolid-auto-sizer)
+[![npm version](https://img.shields.io/npm/v/@dschz/solid-auto-sizer?color=blue)](https://www.npmjs.com/package/@dschz/solid-auto-sizer)
 [![Bundle Size](https://img.shields.io/bundlephobia/minzip/@dschz/solid-auto-sizer)](https://bundlephobia.com/package/@dschz/solid-auto-sizer)
+[![JSR](https://jsr.io/badges/@dschz/solid-auto-sizer/score)](https://jsr.io/@dschz/solid-auto-sizer)
 [![CI](https://github.com/dsnchz/solid-auto-sizer/actions/workflows/ci.yaml/badge.svg)](https://github.com/dsnchz/solid-auto-sizer/actions/workflows/ci.yaml)
 
 > A SolidJS component that automatically measures and provides the width and height of its parent container, making it perfect for responsive layouts and virtualized components.
