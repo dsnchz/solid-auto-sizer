@@ -1,5 +1,11 @@
 # @dschz/solid-auto-sizer
 
+## 0.1.3
+
+### Patch Changes
+
+- Adds JSR score badge to readme
+
 ## 0.1.2
 
 ### Patch Changes
